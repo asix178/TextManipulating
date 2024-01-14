@@ -35,17 +35,19 @@ public class Main {
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
         String Text = ChangeText("Murder_on_the_Orient_Express.txt", "Changed_Murder.txt");
+
         stopWatch.start();
-//        HashMap<String,Integer> Map1 = CountFoursWithHashMap (Text);
+        CountFoursWithHashTable(Text);
+        stopWatch.stop();
+        System.out.println("Elapsed time[ms]: " + stopWatch.getTime());
+        stopWatch.reset();
+
+        stopWatch.start();
         CountFoursWithHashMap (Text);
         stopWatch.stop();
         System.out.println("Elapsed time[ms]: " + stopWatch.getTime());
         stopWatch.reset();
-//        try {
-//            Files.writeString(Path.of("HashMapResults.txt"),Map1.toString(), StandardCharsets.UTF_8);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
+
         stopWatch.start();
         CountFoursWithArrayList(Text);
         stopWatch.stop();
